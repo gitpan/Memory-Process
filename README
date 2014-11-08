@@ -15,7 +15,8 @@ METHODS
              Constructor.
 
     "dump()"
-             TODO
+             Print report to STDERR.
+             Returns return value of print().
 
     "record($message[, $pid])"
              Get report.
@@ -74,5 +75,5 @@ LICENSE AND COPYRIGHT
     BSD 2-Clause License
 
 VERSION
-    0.01
+    0.02
 

@@ -6,7 +6,13 @@ use strict;
 use warnings;
 
 # Version.
-our $VERSION = 0.01;
+our $VERSION = 0.02;
+
+# Print report to STDERR.
+sub dump {
+	my $self = shift;
+	return print STDERR scalar $self->report;
+}
 
 # Get report.
 sub report {
@@ -14,7 +20,7 @@ sub report {
 	my $report = $self->SUPER::report;
 	my @report_full = split m/\n/ms, $report;
 	my @report = ($report_full[0], $report_full[-2], $report_full[-1]);
-	return wantarray ? @report : (join "\n", @report);
+	return wantarray ? @report : (join "\n", @report)."\n";
 }
 
 1;
@@ -49,7 +55,8 @@ __END__
 
 =item C<dump()>
 
- TODO
+ Print report to STDERR.
+ Returns return value of print().
 
 =item C<record($message[, $pid])>
 
@@ -121,6 +128,6 @@ BSD 2-Clause License
 
 =head1 VERSION
 
-0.01
+0.02
 
 =cut
